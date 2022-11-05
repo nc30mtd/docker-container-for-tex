@@ -1,0 +1,17 @@
+version: '3.7'
+
+services:
+  app:
+    container_name: "tex"
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - ROOT_PASSWORD=password
+    volumes:
+      - ../work:/work
+    working_dir: /work
+    tty: true
+    privileged: true
+    command: sleep infinity
+  

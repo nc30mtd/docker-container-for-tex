@@ -1,0 +1,77 @@
+{
+    "latex-workshop.latex.autoBuild.run":"onSave",
+    "latex-workshop.latex.autoClean.run":"onBuilt",
+    "latex-workshop.intellisense.package.enabled": true,
+    "latex-workshop.latex.recipes": [
+      {
+        "name": "uplatexmk",
+        "tools": ["uplatex","upbibtex","uplatex","uplatex","dvi2pdf"]
+      },
+      {
+        "name": "pdflatex 🔃",
+        "tools": ["pdflatex"]
+      },
+      {
+        "name": "lualatexmk",
+        "tools": ["lualatexmk"]
+      },
+    ],
+    "latex-workshop.latex.tools": [
+      {
+        "name": "uplatex",
+        "command": "uplatex",
+        "args": [
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "-pdf",
+          "-outdir=%OUTDIR%",
+          "--shell-escape",
+          "%DOC%"
+        ],
+        "env": {}
+      },
+      {
+        "name": "dvi2pdf",
+        "command": "dvipdfmx",
+        "args": [
+          "-interaction=nonstopmode",
+          "%DOC%"
+        ],
+        "env": {}
+      },
+      {
+        "command": "upbibtex",
+        "args": [
+            "%DOCFILE%",
+            "-kanji=utf8"
+        ],
+        "name": "pbibtex"
+      },
+      {
+        "name": "lualatexmk",
+        "command": "latexmk",
+        "args": [
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "-lualatex",
+          "-outdir=%OUTDIR%",
+          "%DOC%"
+        ],
+        "env": {}
+      },
+      {
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
+          "-synctex=1",
+          "-interaction=nonstopmode",
+          "-file-line-error",
+          "-outdir=%OUTDIR%",
+          "%DOC%"
+        ],
+        "env": {}
+      }
+    ]
+}
